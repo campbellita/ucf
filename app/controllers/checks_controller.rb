@@ -1,6 +1,7 @@
 class ChecksController < ApplicationController
   def index
-    @checks = Check.page(params[:page]).per(10)
+    @q = Check.ransack(params[:q])
+    @checks = @q.result(:distinct => true).includes(:grant).page(params[:page]).per(10)
 
     render("checks/index.html.erb")
   end

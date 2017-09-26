@@ -3,6 +3,176 @@
     Organizations
     <a href="/organizations/new" class="btn btn-lg btn-success">New Organization</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "organizations_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :org_name_cont, "Org name contains" %>
+    <%= f.text_field :org_name_cont, :class => "form-control", :placeholder => "Org name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :phone_cont, "Phone contains" %>
+    <%= f.text_field :phone_cont, :class => "form-control", :placeholder => "Phone contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :address_cont, "Address contains" %>
+    <%= f.text_field :address_cont, :class => "form-control", :placeholder => "Address contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :contact_name_cont, "Contact name contains" %>
+    <%= f.text_field :contact_name_cont, :class => "form-control", :placeholder => "Contact name contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "User Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='usersgteqcreated_atPicker'>
+                  <%= f.text_field :users_created_at_gteq, :class => "form-control", :placeholder => "User Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='userslteqcreated_atPicker'>
+                  <%= f.text_field :users_created_at_lteq, :class => "form-control", :placeholder => "User Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#usersgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#userslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#usersgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#userslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#userslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#usersgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+  <%= f.label :amount, "Grant Amount" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :grants_amount_gteq, :class => "form-control", :placeholder => "Grant Amount greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :grants_amount_lteq, :class => "form-control", :placeholder => "Grant Amount less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+      <%= f.label :thank_you_letters_letter_image_cont, "ThankYouLetter letter_image contains" %>
+      <%= f.text_field :thank_you_letters_letter_image_cont, :class => "form-control", :placeholder => "ThankYouLetter letter_image contains" %>
+    </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "AskLetter Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='ask_lettersgteqcreated_atPicker'>
+                  <%= f.text_field :ask_letters_created_at_gteq, :class => "form-control", :placeholder => "AskLetter Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='ask_letterslteqcreated_atPicker'>
+                  <%= f.text_field :ask_letters_created_at_lteq, :class => "form-control", :placeholder => "AskLetter Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#ask_lettersgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#ask_letterslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#ask_lettersgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#ask_letterslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#ask_letterslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#ask_lettersgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/organizations" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#organizations_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

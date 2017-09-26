@@ -1,6 +1,7 @@
 class ThankYouLettersController < ApplicationController
   def index
-    @thank_you_letters = ThankYouLetter.page(params[:page]).per(10)
+    @q = ThankYouLetter.ransack(params[:q])
+    @thank_you_letters = @q.result(:distinct => true).includes(:organization, :grant).page(params[:page]).per(10)
 
     render("thank_you_letters/index.html.erb")
   end

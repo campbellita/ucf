@@ -1,6 +1,7 @@
 class GrantsController < ApplicationController
   def index
-    @grants = Grant.page(params[:page]).per(10)
+    @q = Grant.ransack(params[:q])
+    @grants = @q.result(:distinct => true).includes(:organization, :checks, :thank_you_letters).page(params[:page]).per(10)
 
     render("grants/index.html.erb")
   end

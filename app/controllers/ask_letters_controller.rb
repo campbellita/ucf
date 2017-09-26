@@ -1,6 +1,7 @@
 class AskLettersController < ApplicationController
   def index
-    @ask_letters = AskLetter.page(params[:page]).per(10)
+    @q = AskLetter.ransack(params[:q])
+    @ask_letters = @q.result(:distinct => true).includes(:organization).page(params[:page]).per(10)
 
     render("ask_letters/index.html.erb")
   end
