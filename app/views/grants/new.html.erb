@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @grant.errors.any? %>
+  <% @grant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Grant</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_grant" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @grant.amount %>">
+      </div>
+
+      <!-- Label and input for fiscal_year -->
+      <div class="form-group">
+        <label for="fiscal_year" class="control-label">
+          Fiscal year
+        </label>
+
+        <input type="text" id="fiscal_year" name="fiscal_year" placeholder="Fiscal year" class="form-control" value="<%= @grant.fiscal_year %>">
+      </div>
+
+      <!-- Label and input for date_approved -->
+      <div class="form-group">
+        <label for="date_approved" class="control-label">
+          Date approved
+        </label>
+
+        <input type="text" id="date_approved" name="date_approved" placeholder="Date approved" class="form-control" value="<%= @grant.date_approved %>">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <div class="form-group">
+        <label for="organization_id" class="control-label">
+          Organization
+        </label>
+
+        <input type="text" id="organization_id" name="organization_id" placeholder="Organization" class="form-control" value="<%= @grant.organization_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Grant
+      </button>
+      or
+      <a href="/grants">Cancel</a>
+    </form>
+  </div>
+</div>

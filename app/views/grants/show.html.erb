@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Grant #<%= @grant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Amount</dt>
+      <dd><%= @grant.amount %></dd>
+
+      <dt>Fiscal year</dt>
+      <dd><%= @grant.fiscal_year %></dd>
+
+      <dt>Date approved</dt>
+      <dd><%= @grant.date_approved %></dd>
+
+      <dt>Organization</dt>
+      <dd><%= @grant.organization_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/grants" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/grants/<%= @grant.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_grant/<%= @grant.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

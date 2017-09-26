@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Grant resource:
+  # CREATE
+  get "/grants/new", :controller => "grants", :action => "new"
+  post "/create_grant", :controller => "grants", :action => "create"
+
+  # READ
+  get "/grants", :controller => "grants", :action => "index"
+  get "/grants/:id", :controller => "grants", :action => "show"
+
+  # UPDATE
+  get "/grants/:id/edit", :controller => "grants", :action => "edit"
+  post "/update_grant/:id", :controller => "grants", :action => "update"
+
+  # DELETE
+  get "/delete_grant/:id", :controller => "grants", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
