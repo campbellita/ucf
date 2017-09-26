@@ -1,6 +1,6 @@
 class GrantsController < ApplicationController
   def index
-    @grants = Grant.all
+    @grants = Grant.page(params[:page]).per(10)
 
     render("grants/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class ThankYouLettersController < ApplicationController
   def index
-    @thank_you_letters = ThankYouLetter.all
+    @thank_you_letters = ThankYouLetter.page(params[:page]).per(10)
 
     render("thank_you_letters/index.html.erb")
   end

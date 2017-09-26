@@ -1,6 +1,6 @@
 class ChecksController < ApplicationController
   def index
-    @checks = Check.all
+    @checks = Check.page(params[:page]).per(10)
 
     render("checks/index.html.erb")
   end

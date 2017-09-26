@@ -1,6 +1,6 @@
 class AskLettersController < ApplicationController
   def index
-    @ask_letters = AskLetter.all
+    @ask_letters = AskLetter.page(params[:page]).per(10)
 
     render("ask_letters/index.html.erb")
   end
