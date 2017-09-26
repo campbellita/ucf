@@ -19,7 +19,13 @@
       <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.organization.org_name %></td>
+        <td>
+          <% if user.organization.present? %>
+            <a href="/organizations/<%= user.organization.id %>">
+              <%= user.organization.org_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
         <td>

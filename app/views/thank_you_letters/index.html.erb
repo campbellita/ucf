@@ -20,8 +20,20 @@
       <tr>
         <td><%= thank_you_letter.letter_image %></td>
         <td><%= thank_you_letter.date %></td>
-        <td><%= thank_you_letter.organization.org_name %></td>
-        <td><%= thank_you_letter.grant.amount %></td>
+        <td>
+          <% if thank_you_letter.organization.present? %>
+            <a href="/organizations/<%= thank_you_letter.organization.id %>">
+              <%= thank_you_letter.organization.org_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if thank_you_letter.grant.present? %>
+            <a href="/grants/<%= thank_you_letter.grant.id %>">
+              <%= thank_you_letter.grant.amount %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/thank_you_letters/<%= thank_you_letter.id %>" class="btn btn-primary">Show</a>
           <a href="/thank_you_letters/<%= thank_you_letter.id %>/edit" class="btn btn-warning">Edit</a>

@@ -21,7 +21,13 @@
         <td><%= grant.amount %></td>
         <td><%= grant.fiscal_year %></td>
         <td><%= grant.date_approved %></td>
-        <td><%= grant.organization.org_name %></td>
+        <td>
+          <% if grant.organization.present? %>
+            <a href="/organizations/<%= grant.organization.id %>">
+              <%= grant.organization.org_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/grants/<%= grant.id %>" class="btn btn-primary">Show</a>
           <a href="/grants/<%= grant.id %>/edit" class="btn btn-warning">Edit</a>

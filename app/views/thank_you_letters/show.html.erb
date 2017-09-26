@@ -12,10 +12,22 @@
       <dd><%= @thank_you_letter.date %></dd>
 
       <dt>Organization</dt>
-      <dd><%= @thank_you_letter.organization_id %></dd>
+      <dd>
+        <% if @thank_you_letter.organization.present? %>
+          <a href="/organizations/<%= @thank_you_letter.organization_id %>">
+            <%= @thank_you_letter.organization.org_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Grant</dt>
-      <dd><%= @thank_you_letter.grant_id %></dd>
+      <dd>
+        <% if @thank_you_letter.grant.present? %>
+          <a href="/grants/<%= @thank_you_letter.grant_id %>">
+            <%= @thank_you_letter.grant.amount %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -19,7 +19,13 @@
       <tr>
         <td><img src='<%= ask_letter.letter_image %>' class='img-responsive'></td>
         <td><%= ask_letter.date %></td>
-        <td><%= ask_letter.organization.org_name %></td>
+        <td>
+          <% if ask_letter.organization.present? %>
+            <a href="/organizations/<%= ask_letter.organization.id %>">
+              <%= ask_letter.organization.org_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/ask_letters/<%= ask_letter.id %>" class="btn btn-primary">Show</a>
           <a href="/ask_letters/<%= ask_letter.id %>/edit" class="btn btn-warning">Edit</a>

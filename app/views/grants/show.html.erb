@@ -15,7 +15,13 @@
       <dd><%= @grant.date_approved %></dd>
 
       <dt>Organization</dt>
-      <dd><%= @grant.organization_id %></dd>
+      <dd>
+        <% if @grant.organization.present? %>
+          <a href="/organizations/<%= @grant.organization_id %>">
+            <%= @grant.organization.org_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

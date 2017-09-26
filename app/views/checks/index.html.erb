@@ -21,7 +21,13 @@
         <td><img src='<%= check.check_image %>' class='img-responsive'></td>
         <td><%= check.account_type %></td>
         <td><%= check.check_number %></td>
-        <td><%= check.grant.amount %></td>
+        <td>
+          <% if check.grant.present? %>
+            <a href="/grants/<%= check.grant.id %>">
+              <%= check.grant.amount %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/checks/<%= check.id %>" class="btn btn-primary">Show</a>
           <a href="/checks/<%= check.id %>/edit" class="btn btn-warning">Edit</a>

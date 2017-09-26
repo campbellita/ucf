@@ -12,7 +12,13 @@
       <dd><%= @ask_letter.date %></dd>
 
       <dt>Organization</dt>
-      <dd><%= @ask_letter.organization_id %></dd>
+      <dd>
+        <% if @ask_letter.organization.present? %>
+          <a href="/organizations/<%= @ask_letter.organization_id %>">
+            <%= @ask_letter.organization.org_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

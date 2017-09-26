@@ -15,7 +15,13 @@
       <dd><%= @check.check_number %></dd>
 
       <dt>Grant</dt>
-      <dd><%= @check.grant_id %></dd>
+      <dd>
+        <% if @check.grant.present? %>
+          <a href="/grants/<%= @check.grant_id %>">
+            <%= @check.grant.amount %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
