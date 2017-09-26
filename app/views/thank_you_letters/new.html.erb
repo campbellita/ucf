@@ -42,7 +42,7 @@
           Organization
         </label>
 
-        <input type="text" id="organization_id" name="organization_id" placeholder="Organization" class="form-control" value="<%= @thank_you_letter.organization_id %>">
+        <%= select_tag(:organization_id, options_from_collection_for_select(Organization.all, :id, :org_name, @thank_you_letter.organization_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for grant_id -->
