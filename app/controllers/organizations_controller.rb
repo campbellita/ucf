@@ -6,6 +6,10 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    @ask_letter = AskLetter.new
+    @thank_you_letter = ThankYouLetter.new
+    @grant = Grant.new
+    @user = User.new
     @organization = Organization.find(params[:id])
 
     render("organizations/show.html.erb")

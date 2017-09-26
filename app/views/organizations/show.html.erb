@@ -60,6 +60,10 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        
+      </li>
     </ul>
   </div>
 </div>
@@ -91,6 +95,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_grant" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for fiscal_year -->
+      <div class="form-group">
+        <label for="fiscal_year" class="control-label">
+          Fiscal year
+        </label>
+
+        <input type="text" id="fiscal_year" name="fiscal_year" placeholder="Fiscal year" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date_approved -->
+      <div class="form-group">
+        <label for="date_approved" class="control-label">
+          Date approved
+        </label>
+
+        <input type="text" id="date_approved" name="date_approved" placeholder="Date approved" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <input type="hidden" name="organization_id" value="<%= @organization.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Grant
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -122,6 +167,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_thank_you_letter" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for letter_image -->
+      <div class="form-group">
+        <label for="letter_image" class="control-label">
+          Letter image
+        </label>
+
+        <input type="text" id="letter_image" name="letter_image" placeholder="Letter image" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <input type="hidden" name="organization_id" value="<%= @organization.id %>">
+
+      <!-- Label and input for grant_id -->
+      <div class="form-group">
+        <label for="grant_id" class="control-label">
+          Grant
+        </label>
+
+        <%= select_tag(:grant_id, options_from_collection_for_select(Grant.all, :id, :amount), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Thank You Letter
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -153,6 +239,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_ask_letter" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for letter_image -->
+      <div class="form-group">
+        <label for="letter_image" class="control-label">
+          Letter image
+        </label>
+
+        <input type="file" id="letter_image" name="letter_image" class="form-control">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <input type="hidden" name="organization_id" value="<%= @organization.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Ask Letter
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

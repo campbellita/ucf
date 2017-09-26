@@ -6,6 +6,8 @@ class GrantsController < ApplicationController
   end
 
   def show
+    @thank_you_letter = ThankYouLetter.new
+    @check = Check.new
     @grant = Grant.find(params[:id])
 
     render("grants/show.html.erb")
