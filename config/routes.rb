@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Ask_letter resource:
+  # CREATE
+  get "/ask_letters/new", :controller => "ask_letters", :action => "new"
+  post "/create_ask_letter", :controller => "ask_letters", :action => "create"
+
+  # READ
+  get "/ask_letters", :controller => "ask_letters", :action => "index"
+  get "/ask_letters/:id", :controller => "ask_letters", :action => "show"
+
+  # UPDATE
+  get "/ask_letters/:id/edit", :controller => "ask_letters", :action => "edit"
+  post "/update_ask_letter/:id", :controller => "ask_letters", :action => "update"
+
+  # DELETE
+  get "/delete_ask_letter/:id", :controller => "ask_letters", :action => "destroy"
+  #------------------------------
+
   # Routes for the Thank_you_letter resource:
   # CREATE
   get "/thank_you_letters/new", :controller => "thank_you_letters", :action => "new"

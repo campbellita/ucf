@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @ask_letter.errors.any? %>
+  <% @ask_letter.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Ask Letter #<%= @ask_letter.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_ask_letter/<%= @ask_letter.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for letter_image -->
+      <div class="form-group">
+        <label for="letter_image" class="control-label">
+          Letter image
+        </label>
+
+        <input type="text" id="letter_image" name="letter_image" placeholder="Letter image" class="form-control" value="<%= @ask_letter.letter_image %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @ask_letter.date %>">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <div class="form-group">
+        <label for="organization_id" class="control-label">
+          Organization
+        </label>
+
+        <input type="text" id="organization_id" name="organization_id" placeholder="Organization" class="form-control" value="<%= @ask_letter.organization_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Ask Letter
+      </button>
+      or
+      <a href="/ask_letters/<%= @ask_letter.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
