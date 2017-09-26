@@ -1,5 +1,7 @@
 ActiveAdmin.register Organization do
 
+ permit_params :org_name, :contact_name, :address, :phone
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
