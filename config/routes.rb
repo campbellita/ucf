@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "organizations#index"
   # Routes for the Ask_letter resource:
   # CREATE
   get "/ask_letters/new", :controller => "ask_letters", :action => "new"
