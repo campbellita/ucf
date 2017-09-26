@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @thank_you_letter.errors.any? %>
+  <% @thank_you_letter.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Thank You Letter #<%= @thank_you_letter.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_thank_you_letter/<%= @thank_you_letter.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for letter_image -->
+      <div class="form-group">
+        <label for="letter_image" class="control-label">
+          Letter image
+        </label>
+
+        <input type="text" id="letter_image" name="letter_image" placeholder="Letter image" class="form-control" value="<%= @thank_you_letter.letter_image %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @thank_you_letter.date %>">
+      </div>
+
+      <!-- Label and input for organization_id -->
+      <div class="form-group">
+        <label for="organization_id" class="control-label">
+          Organization
+        </label>
+
+        <input type="text" id="organization_id" name="organization_id" placeholder="Organization" class="form-control" value="<%= @thank_you_letter.organization_id %>">
+      </div>
+
+      <!-- Label and input for grant_id -->
+      <div class="form-group">
+        <label for="grant_id" class="control-label">
+          Grant
+        </label>
+
+        <input type="text" id="grant_id" name="grant_id" placeholder="Grant" class="form-control" value="<%= @thank_you_letter.grant_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Thank You Letter
+      </button>
+      or
+      <a href="/thank_you_letters/<%= @thank_you_letter.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

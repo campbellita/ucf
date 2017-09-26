@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Thank you letters
+    <a href="/thank_you_letters/new" class="btn btn-lg btn-success">New Thank you letter</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Letter image</th>
+        <th>Date</th>
+        <th>Organization</th>
+        <th>Grant</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @thank_you_letters.each do |thank_you_letter| %>
+      <tr>
+        <td><%= thank_you_letter.letter_image %></td>
+        <td><%= thank_you_letter.date %></td>
+        <td><%= thank_you_letter.organization_id %></td>
+        <td><%= thank_you_letter.grant_id %></td>
+        <td>
+          <a href="/thank_you_letters/<%= thank_you_letter.id %>" class="btn btn-primary">Show</a>
+          <a href="/thank_you_letters/<%= thank_you_letter.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_thank_you_letter/<%= thank_you_letter.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
