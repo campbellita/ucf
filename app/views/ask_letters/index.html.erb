@@ -19,7 +19,7 @@
       <tr>
         <td><%= ask_letter.letter_image %></td>
         <td><%= ask_letter.date %></td>
-        <td><%= ask_letter.organization_id %></td>
+        <td><%= ask_letter.organization.org_name %></td>
         <td>
           <a href="/ask_letters/<%= ask_letter.id %>" class="btn btn-primary">Show</a>
           <a href="/ask_letters/<%= ask_letter.id %>/edit" class="btn btn-warning">Edit</a>
