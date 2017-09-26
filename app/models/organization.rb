@@ -1,6 +1,9 @@
 class Organization < ApplicationRecord
   # Direct associations
 
+  has_many   :ask_letters,
+             :dependent => :destroy
+
   has_many   :thank_you_letters,
              :dependent => :destroy
 
