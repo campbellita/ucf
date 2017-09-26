@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @organization.errors.any? %>
+  <% @organization.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Organization</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_organization" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for org_name -->
+      <div class="form-group">
+        <label for="org_name" class="control-label">
+          Org name
+        </label>
+
+        <input type="text" id="org_name" name="org_name" placeholder="Org name" class="form-control" value="<%= @organization.org_name %>">
+      </div>
+
+      <!-- Label and input for contact_name -->
+      <div class="form-group">
+        <label for="contact_name" class="control-label">
+          Contact name
+        </label>
+
+        <input type="text" id="contact_name" name="contact_name" placeholder="Contact name" class="form-control" value="<%= @organization.contact_name %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <textarea id="address" name="address" placeholder="Address" class="form-control" rows="3"><%= @organization.address %></textarea>
+      </div>
+
+      <!-- Label and input for phone -->
+      <div class="form-group">
+        <label for="phone" class="control-label">
+          Phone
+        </label>
+
+        <textarea id="phone" name="phone" placeholder="Phone" class="form-control" rows="3"><%= @organization.phone %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Organization
+      </button>
+      or
+      <a href="/organizations">Cancel</a>
+    </form>
+  </div>
+</div>
