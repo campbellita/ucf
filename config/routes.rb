@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Check resource:
+  # CREATE
+  get "/checks/new", :controller => "checks", :action => "new"
+  post "/create_check", :controller => "checks", :action => "create"
+
+  # READ
+  get "/checks", :controller => "checks", :action => "index"
+  get "/checks/:id", :controller => "checks", :action => "show"
+
+  # UPDATE
+  get "/checks/:id/edit", :controller => "checks", :action => "edit"
+  post "/update_check/:id", :controller => "checks", :action => "update"
+
+  # DELETE
+  get "/delete_check/:id", :controller => "checks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Grant resource:
   # CREATE
   get "/grants/new", :controller => "grants", :action => "new"

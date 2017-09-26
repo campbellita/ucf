@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @check.errors.any? %>
+  <% @check.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Check #<%= @check.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_check/<%= @check.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for check_image -->
+      <div class="form-group">
+        <label for="check_image" class="control-label">
+          Check image
+        </label>
+
+        <input type="text" id="check_image" name="check_image" placeholder="Check image" class="form-control" value="<%= @check.check_image %>">
+      </div>
+
+      <!-- Label and input for account_type -->
+      <div class="form-group">
+        <label for="account_type" class="control-label">
+          Account type
+        </label>
+
+        <input type="text" id="account_type" name="account_type" placeholder="Account type" class="form-control" value="<%= @check.account_type %>">
+      </div>
+
+      <!-- Label and input for check_number -->
+      <div class="form-group">
+        <label for="check_number" class="control-label">
+          Check number
+        </label>
+
+        <input type="text" id="check_number" name="check_number" placeholder="Check number" class="form-control" value="<%= @check.check_number %>">
+      </div>
+
+      <!-- Label and input for grant_id -->
+      <div class="form-group">
+        <label for="grant_id" class="control-label">
+          Grant
+        </label>
+
+        <input type="text" id="grant_id" name="grant_id" placeholder="Grant" class="form-control" value="<%= @check.grant_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Check
+      </button>
+      or
+      <a href="/checks/<%= @check.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
