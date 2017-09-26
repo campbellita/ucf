@@ -32,3 +32,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Grant has many checks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Checks
+      </li>
+
+      <% @grant.checks.each do |check| %>
+        <li class="list-group-item">
+          <a href="/checks/<%= check.id %>">
+            <%= check.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/checks/<%= check.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/checks/<%= check.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_check/<%= check.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Grant has many thank_you_letters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Thank You Letters
+      </li>
+
+      <% @grant.thank_you_letters.each do |thank_you_letter| %>
+        <li class="list-group-item">
+          <a href="/thank_you_letters/<%= thank_you_letter.id %>">
+            <%= thank_you_letter.letter_image %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/thank_you_letters/<%= thank_you_letter.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/thank_you_letters/<%= thank_you_letter.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_thank_you_letter/<%= thank_you_letter.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

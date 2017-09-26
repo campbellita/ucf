@@ -32,3 +32,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Organization has many users -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Users
+      </li>
+
+      <% @organization.users.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Organization has many grants -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Grants
+      </li>
+
+      <% @organization.grants.each do |grant| %>
+        <li class="list-group-item">
+          <a href="/grants/<%= grant.id %>">
+            <%= grant.amount %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/grants/<%= grant.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/grants/<%= grant.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_grant/<%= grant.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Organization has many thank_you_letters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Thank You Letters
+      </li>
+
+      <% @organization.thank_you_letters.each do |thank_you_letter| %>
+        <li class="list-group-item">
+          <a href="/thank_you_letters/<%= thank_you_letter.id %>">
+            <%= thank_you_letter.letter_image %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/thank_you_letters/<%= thank_you_letter.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/thank_you_letters/<%= thank_you_letter.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_thank_you_letter/<%= thank_you_letter.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Organization has many ask_letters -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Ask Letters
+      </li>
+
+      <% @organization.ask_letters.each do |ask_letter| %>
+        <li class="list-group-item">
+          <a href="/ask_letters/<%= ask_letter.id %>">
+            <%= ask_letter.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/ask_letters/<%= ask_letter.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/ask_letters/<%= ask_letter.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_ask_letter/<%= ask_letter.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
