@@ -51,7 +51,7 @@
           Grant
         </label>
 
-        <input type="text" id="grant_id" name="grant_id" placeholder="Grant" class="form-control" value="<%= @thank_you_letter.grant_id %>">
+        <%= select_tag(:grant_id, options_from_collection_for_select(Grant.all, :id, :amount, @thank_you_letter.grant_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
