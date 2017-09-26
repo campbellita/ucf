@@ -17,7 +17,7 @@
 
       <% @ask_letters.each do |ask_letter| %>
       <tr>
-        <td><%= ask_letter.letter_image %></td>
+        <td><img src='<%= ask_letter.letter_image %>' class='img-responsive'></td>
         <td><%= ask_letter.date %></td>
         <td><%= ask_letter.organization.org_name %></td>
         <td>

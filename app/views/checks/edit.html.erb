@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/update_check/<%= @check.id %>" method="post">
+    <form action="/update_check/<%= @check.id %>" method="post" enctype="multipart/form-data">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -24,7 +24,8 @@
           Check image
         </label>
 
-        <input type="text" id="check_image" name="check_image" placeholder="Check image" class="form-control" value="<%= @check.check_image %>">
+        <%= cl_image_tag(@check.check_image.to_s, :width => 90, :height => 90, :crop => :thumb) %>
+        <input type="file" id="check_image" name="check_image" class="form-control">
       </div>
 
       <!-- Label and input for account_type -->

@@ -18,7 +18,7 @@
 
       <% @checks.each do |check| %>
       <tr>
-        <td><%= check.check_image %></td>
+        <td><img src='<%= check.check_image %>' class='img-responsive'></td>
         <td><%= check.account_type %></td>
         <td><%= check.check_number %></td>
         <td><%= check.grant.amount %></td>
